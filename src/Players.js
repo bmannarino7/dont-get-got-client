@@ -7,7 +7,7 @@ export default function Envelope() {
 
     function People() {
 
-        const [active, setActive] = useState(playerList[0]);
+        const [activePlayer, setActivePlayer] = useState(playerList[0]);
         const [missionsIndexArray, setMissionsIndexArray] = useState([0, 0, 0, 0, 0, 0]);
 
         return (
@@ -15,15 +15,15 @@ export default function Envelope() {
                 {playerList.map((player) => (
                     <button
                         key={player}
-                        active={active === player}
-                        missionsIndexArray={active === player}
-                        onClick={() => setActive(player)}
+                        player={activePlayer === player}
+                        missionsIndexArray={activePlayer === player}
+                        onClick={() => setActivePlayer(player)}
                     >
                         {player}
                     </button>
                 ))}
                 <p />
-                <p> Current Selection:  {active} {missionsIndexArray} </p>
+                <p> Current Selection:  {activePlayer} {missionsIndexArray} </p>
 
             </>
         );
@@ -32,8 +32,7 @@ export default function Envelope() {
 
     return (
         <>
-            <button
-                onClick={() => setPlayerList(defaultPlayerList)}>Use Sample Player List</button>
+            <button onClick={() => setPlayerList(defaultPlayerList)}>Use Sample Player List</button>
             <button onClick={() => setPlayerList(["test"])}> Use My Own Player</button>
             
             <People> </People>
