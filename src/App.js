@@ -6,7 +6,6 @@ function App() {
     <div className="App">
       <h1>Don't Get Got, Bitch</h1>
       <Players></Players>
-      <Mission></Mission>
     </div>
   );
 }

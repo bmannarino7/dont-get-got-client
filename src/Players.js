@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import Mission from "./components/Mission";
+import Wallet from "./components/Wallet";
 
 export default function Envelope() {
     const defaultPlayerList = ["Avishek Khan", "Brandon Mannarino", "Jeremy Morgan", "Lee Evans", "Donovan Bendana", "Jake Hoberg", "Joshua France", "Miles Todzo", "Luis Antillon"];
@@ -13,18 +15,21 @@ export default function Envelope() {
         return (
             <>
                 {playerList.map((player) => (
-                    <button
-                        key={player}
-                        player={activePlayer === player}
-                        missionsIndexArray={activePlayer === player}
-                        onClick={() => setActivePlayer(player)}
-                    >
-                        {player}
-                    </button>
+                    <> 
+                        <button
+                            key={player}
+                            player={activePlayer === player}
+                            missionsIndexArray={activePlayer === player}
+                            onClick={() => setActivePlayer(player)}
+                        >
+                            {player}
+                        </button>
+                    </>
                 ))}
-                <p />
-                <p> Current Selection:  {activePlayer} {missionsIndexArray} </p>
-
+                
+                <br />
+                <p> Current Selection:  {activePlayer} {missionsIndexArray}  </p>
+                <Wallet player={activePlayer}/>
             </>
         );
     }
