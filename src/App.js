@@ -1,4 +1,5 @@
 import Players from "./Players";
+import Mission from "./components/Mission";
 
 function App() {
   return (

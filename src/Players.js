@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import Mission from "./components/Mission";
+import Wallet from "./components/Wallet";
 
 export default function Envelope() {
     const defaultPlayerList = ["Avishek Khan", "Brandon Mannarino", "Jeremy Morgan", "Lee Evans", "Donovan Bendana", "Jake Hoberg", "Joshua France", "Miles Todzo", "Luis Antillon"];
@@ -7,24 +9,27 @@ export default function Envelope() {
 
     function People() {
 
-        const [active, setActive] = useState(playerList[0]);
+        const [activePlayer, setActivePlayer] = useState(playerList[0]);
         const [missionsIndexArray, setMissionsIndexArray] = useState([0, 0, 0, 0, 0, 0]);
 
         return (
             <>
                 {playerList.map((player) => (
-                    <button
-                        key={player}
-                        active={active === player}
-                        missionsIndexArray={active === player}
-                        onClick={() => setActive(player)}
-                    >
-                        {player}
-                    </button>
+                    <> 
+                        <button
+                            key={player}
+                            player={activePlayer === player}
+                            missionsIndexArray={activePlayer === player}
+                            onClick={() => setActivePlayer(player)}
+                        >
+                            {player}
+                        </button>
+                    </>
                 ))}
-                <p />
-                <p> Current Selection:  {active} {missionsIndexArray} </p>
-
+                
+                <br />
+                <p> Current Selection:  {activePlayer} {missionsIndexArray}  </p>
+                <Wallet player={activePlayer}/>
             </>
         );
     }
@@ -32,8 +37,7 @@ export default function Envelope() {
 
     return (
         <>
-            <button
-                onClick={() => setPlayerList(defaultPlayerList)}>Use Sample Player List</button>
+            <button onClick={() => setPlayerList(defaultPlayerList)}>Use Sample Player List</button>
             <button onClick={() => setPlayerList(["test"])}> Use My Own Player</button>
             
             <People> </People>
