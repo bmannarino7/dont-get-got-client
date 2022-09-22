@@ -3,7 +3,7 @@ import Mission from "./components/Mission";
 import Wallet from "./components/Wallet";
 
 export default function Envelope() {
-    const defaultPlayerList = ["Avishek Khan", "Brandon Mannarino", "Jeremy Morgan", "Lee Evans", "Donovan Bendana", "Jake Hoberg", "Joshua France", "Miles Todzo", "Luis Antillon"];
+    const defaultPlayerList = ["Avishek Khan", "Brandon Mannarino", "Jeremy Morgan", "Lee Evans", "Jake Hoberg", "Joshua France", "Miles Todzo", "Luis Antillon"];
     const [playerList, setPlayerList] = useState(defaultPlayerList);
 
 
@@ -11,6 +11,19 @@ export default function Envelope() {
 
         const [activePlayer, setActivePlayer] = useState(playerList[0]);
         const [missionsIndexArray, setMissionsIndexArray] = useState([0, 0, 0, 0, 0, 0]);
+
+        /*Notes about what I want to do here: 
+
+        // setMissionsIndexArray() ={
+            
+        //    Necessary missions =  playerList.length * 6;
+
+        //    shuffle the missions list: 
+        //    pop from the top every time and put it onto the wallet 
+
+        // }
+        // }
+        */
 
         return (
             <>
