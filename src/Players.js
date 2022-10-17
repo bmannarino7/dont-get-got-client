@@ -6,7 +6,6 @@ export default function Envelope() {
     const defaultPlayerList = ["Avishek Khan", "Brandon Mannarino", "Jeremy Morgan", "Lee Evans", "Jake Hoberg", "Joshua France", "Miles Todzo", "Luis Antillon"];
     const [playerList, setPlayerList] = useState(defaultPlayerList);
 
-
     function People() {
 
         const [activePlayer, setActivePlayer] = useState(playerList[0]);
@@ -18,7 +17,7 @@ export default function Envelope() {
             
         //    Necessary missions =  playerList.length * 6;
 
-        //    shuffle the missions list: 
+        //    shuffle the missions list (shuffle function has been added to util directory -BM)
         //    pop from the top every time and put it onto the wallet 
 
         // }
